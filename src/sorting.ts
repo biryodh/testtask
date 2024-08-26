@@ -84,7 +84,7 @@ export function executeProcess(vulnerabilityScripts:VulnerabilityScript[],vScrip
     processCount--;
     }
     
-    console.log(graph)
+    //console.log(graph)
 
     if((vScriptExecuted.length -defaultExe ) !== vScripts.length){
         throw 'error! script is missing'
