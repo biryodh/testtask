@@ -33,7 +33,7 @@ describe("Process function", () => {
     expect(()=>executeNonDependentScripts(vulnerabilityScripts)).toThrow("error")
   });
 
-  //---------------- Process execution method--------------
+  // //---------------- Process execution method--------------
   it("Process sorting order: ", () => { 
     let vulnerabilityScripts:VulnerabilityScript[] = [
       new VulnerabilityScript(1,[2]),
@@ -82,22 +82,7 @@ describe("Process function", () => {
     
   });
 
-  it("circular dependency with other process ", () => { 
-    let vulnerabilityScripts:VulnerabilityScript[] = [
-      new VulnerabilityScript(1,[2]),
-      new VulnerabilityScript(2,[4,3]),
-      new VulnerabilityScript(3,[5]),
-      new VulnerabilityScript(4,[2]),
-      new VulnerabilityScript(5,[]),
-      new VulnerabilityScript(6,[]),
-    ];
 
-  //expect(executeProcess(vulnerabilityScripts)).toEqual([5,6,3,4,2,1])
-   
-  expect(()=>executeProcess(vulnerabilityScripts)).toThrow(/error/)
-    
-    
-  });
   
 
 

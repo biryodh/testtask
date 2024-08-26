@@ -47,6 +47,7 @@ export function executeProcess(vulnerabilityScripts:VulnerabilityScript[],vScrip
     const defaultExe:number = vScriptExecuted.length;
     const graph: Map<number, number[]>= new Map();
 
+
     while(processCount!=0){
         for(let script of vulnerabilityScripts){
             let executedCount:number = 0;
@@ -75,6 +76,7 @@ export function executeProcess(vulnerabilityScripts:VulnerabilityScript[],vScrip
                 vScriptExecuted.push(script.getScriptId());
 
                 if(graph.has(script.getScriptId())){
+                   // console.log("here: deleted", script.getScriptId())
                     graph.delete(script.getScriptId());
                 }
 
@@ -84,10 +86,8 @@ export function executeProcess(vulnerabilityScripts:VulnerabilityScript[],vScrip
     processCount--;
     }
     
-    //console.log(graph)
-
     if((vScriptExecuted.length -defaultExe ) !== vScripts.length){
-        throw 'error! script is missing'
+        throw 'error! script execution is missing'
     }
 
     return vScriptExecuted;
